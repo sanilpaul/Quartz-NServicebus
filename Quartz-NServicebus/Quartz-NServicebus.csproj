@@ -78,16 +78,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerInitialization.cs" />
-    <Compile Include="QuartzDbContext.cs" />
+    <Compile Include="CronExpressionConverter.cs" />
+    <Compile Include="Data\QuartzDbContext.cs" />
+    <Compile Include="Data\QuartzDbContextInitializer.cs" />
+    <Compile Include="Depot.cs" />
+    <Compile Include="DepotSchedule.cs" />
     <Compile Include="JobSetUp.cs" />
     <Compile Include="JobInEst.cs" />
-    <Compile Include="QuartzDbContextInitializer.cs" />
+    <Compile Include="Models\Mapping\QRTZ_BLOB_TRIGGERSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_CALENDARSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_CRON_TRIGGERSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_FIRED_TRIGGERSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_JOB_DETAILSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_LOCKSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_PAUSED_TRIGGER_GRPSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_SCHEDULER_STATEMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_SIMPLE_TRIGGERSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_SIMPROP_TRIGGERSMap.cs" />
+    <Compile Include="Models\Mapping\QRTZ_TRIGGERSMap.cs" />
+    <Compile Include="Models\QRTZ_BLOB_TRIGGERS.cs" />
+    <Compile Include="Models\QRTZ_CALENDARS.cs" />
+    <Compile Include="Models\QRTZ_CRON_TRIGGERS.cs" />
+    <Compile Include="Models\QRTZ_FIRED_TRIGGERS.cs" />
+    <Compile Include="Models\QRTZ_JOB_DETAILS.cs" />
+    <Compile Include="Models\QRTZ_LOCKS.cs" />
+    <Compile Include="Models\QRTZ_PAUSED_TRIGGER_GRPS.cs" />
+    <Compile Include="Models\QRTZ_SCHEDULER_STATE.cs" />
+    <Compile Include="Models\QRTZ_SIMPLE_TRIGGERS.cs" />
+    <Compile Include="Models\QRTZ_SIMPROP_TRIGGERS.cs" />
+    <Compile Include="Models\QRTZ_TRIGGERS.cs" />
     <Compile Include="SchedulerSetUp.cs" />
     <Compile Include="EndpointConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +123,9 @@
       <Project>{E46D5FCC-990C-4685-81CA-90C168E1A28C}</Project>
       <Name>Quartz-Nservicebus.Messages</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

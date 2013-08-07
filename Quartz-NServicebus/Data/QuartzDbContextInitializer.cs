@@ -1,9 +1,37 @@
-﻿using System.Data.Entity;
+using System;
+using System.Data.Entity;
+using System.Linq;
 
-namespace Quartz_NServicebus
+namespace Quartz_NServicebus.Data
 {
     public class QuartzDbContextInitializer : DropCreateDatabaseIfModelChanges<QuartzDbContext>
     {
+        readonly Depot[] depots = new[]
+            {
+                new Depot { Id = new Guid("5ad03347-4ece-4fe7-8bdb-5de0f5e8336e"), Name = "NewYork Depot", TimeZoneId = "Eastern Standard Time"}, 
+                new Depot{ Id = new Guid("BC6FA893-1904-41F7-9F49-85419B9CB7BC"), Name = "India Depot", TimeZoneId = "India Standard Time"}, 
+                new Depot{ Id = new Guid("6C69C5F5-7BC3-49F9-86B3-A0BE9C7EA58C"), Name = "pacific Depot", TimeZoneId = "Pacific Standard Time"}, 
+            };
+
+        protected override void Seed(QuartzDbContext context)
+        {
+            base.Seed(context);
+            //context.Database.ExecuteSqlCommand(CreattionScripts.QuartzDbCreation);
+            AddDepots(context);
+            AddDepotSchedules(context);
+        }
+
+        private void AddDepots(QuartzDbContext context)
+        {
+            depots.ToList().ForEach(depot => context.Depots.Add(depot));
+        }
+
+        private void AddDepotSchedules(QuartzDbContext context)
+        {
+            context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("5ad03347-4ece-4fe7-8bdb-5de0f5e8336e"), DaysOfTheWeek = "wed,fri", Hour = 14, Minutes = 15 });
+            context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("BC6FA893-1904-41F7-9F49-85419B9CB7BC"), DaysOfTheWeek = "wed, thu", Hour = 14, Minutes = 30 });
+            context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("6C69C5F5-7BC3-49F9-86B3-A0BE9C7EA58C"), DaysOfTheWeek = "wed,fri", Hour = 14, Minutes = 45 });
+        }
     }
 
     static class CreattionScripts
