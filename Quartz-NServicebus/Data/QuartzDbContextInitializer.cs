@@ -28,6 +28,7 @@ namespace Quartz_NServicebus.Data
 
         private void AddDepotSchedules(QuartzDbContext context)
         {
+            //Days of the week has to be in this format
             context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("5ad03347-4ece-4fe7-8bdb-5de0f5e8336e"), DaysOfTheWeek = "wed,fri", Hour = 15, Minutes = 25 });
             context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("BC6FA893-1904-41F7-9F49-85419B9CB7BC"), DaysOfTheWeek = "wed,thu", Hour = 0, Minutes = 58 });
             context.DepotSchedules.Add(new DepotSchedule { DepotId = new Guid("6C69C5F5-7BC3-49F9-86B3-A0BE9C7EA58C"), DaysOfTheWeek = "wed,fri", Hour = 12, Minutes = 27 });

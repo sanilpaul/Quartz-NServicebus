@@ -28,8 +28,7 @@ namespace Quartz_NServicebus
                     var schedule = schedules.Single(s => s.DepotId == depot.Id);
 
                     var jobKey = new JobKey(depot.Id.ToString(), depot.Name);
-                    var jobDetail = JobBuilder.Create<JobInEst>().WithIdentity(jobKey).Build();
-                    
+                    var jobDetail = JobBuilder.Create<CustomJob>().WithIdentity(jobKey).Build();
                     var trigger = CreateTrigger(schedule, depot, jobKey);
 
                     scheduler.ScheduleJob(jobDetail, trigger);
@@ -41,7 +40,6 @@ namespace Quartz_NServicebus
         private static ICronTrigger CreateTrigger(DepotSchedule depotSchedule, Depot depot, JobKey jobKey)
         {
             var expression = CronExpressionConverter.ConvertToCronExpression(depotSchedule.DaysOfTheWeek, depotSchedule.Hour, depotSchedule.Minutes);
-            
             //This is for debugging purposes
             //var result = CronExpression.IsValidExpression(expression); 
 

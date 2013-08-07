@@ -5,7 +5,7 @@ using Quartz_Nservicebus.Messages;
 
 namespace Quartz_NServicebus
 {
-    public class JobInEst : IJob
+    public class CustomJob : IJob
     {
         //TODO: Get this DI working..Low priority
         public IBus Bus { get; set; }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using NServiceBus;
+﻿using NServiceBus;
 using Quartz;
 using Quartz.Impl;
-using Quartz_NServicebus.Data;
 
 namespace Quartz_NServicebus
 {
@@ -11,11 +8,6 @@ namespace Quartz_NServicebus
     {
         public void Init()
         {
-            using (var context = new QuartzDbContext())
-            {
-                var depots = context.Depots.ToList();
-            }
-
             Configure.Instance.Configurer.ConfigureComponent<IScheduler>(() =>
             {
                 var factory = new StdSchedulerFactory();
