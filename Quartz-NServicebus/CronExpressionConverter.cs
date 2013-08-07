@@ -12,8 +12,8 @@ namespace Quartz_NServicebus
         {
             const int seconds = 0;
             const string dayOfMonth = "?";
-            const string month = "?";
-            return string.Format("{0}{1}{2}{3}{4}{5}", seconds, minutes, hour, dayOfMonth, month, dayofWeek);
+            const string month = "*";
+            return string.Format("{0} {1} {2} {3} {4} {5}", seconds, minutes, hour, dayOfMonth, month, dayofWeek.ToUpper());
         }
 
         public static string AbbreviatedNames(IEnumerable<DayOfWeek> days)
