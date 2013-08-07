@@ -12,7 +12,7 @@ namespace Quartz_NServicebus
 
         public void Execute(IJobExecutionContext context)
         {
-            Console.WriteLine(string.Format("JobInEST with Id {0} Executed ", context.JobDetail.Key.Name));
+            Console.WriteLine(string.Format("JobInEST with Id {0} == {1} Executed @{2}", context.JobDetail.Key.Name, context.JobDetail.Key.Group, DateTime.Now.TimeOfDay));
             Bus.Send("receiver", new DoSomething { MessageCreatedAtInUtc = DateTime.UtcNow });
         }
     }

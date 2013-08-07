@@ -2,6 +2,7 @@
 using System.Linq;
 using NServiceBus;
 using Quartz;
+using Quartz.Spi;
 using Quartz_NServicebus.Data;
 
 namespace Quartz_NServicebus
@@ -28,7 +29,8 @@ namespace Quartz_NServicebus
 
                     var jobKey = new JobKey(depot.Id.ToString(), depot.Name);
                     var jobDetail = JobBuilder.Create<JobInEst>().WithIdentity(jobKey).Build();
-                    var trigger = CreateTrigger(schedule).ForJob(jobDetail).Build();
+                    
+                    var trigger = CreateTrigger(schedule, depot, jobKey);
 
                     scheduler.ScheduleJob(jobDetail, trigger);
                 }
@@ -36,11 +38,17 @@ namespace Quartz_NServicebus
             Console.WriteLine("Job Has been Setup");
         }
 
-        private static TriggerBuilder CreateTrigger(DepotSchedule depotSchedule)
+        private static ICronTrigger CreateTrigger(DepotSchedule depotSchedule, Depot depot, JobKey jobKey)
         {
             var expression = CronExpressionConverter.ConvertToCronExpression(depotSchedule.DaysOfTheWeek, depotSchedule.Hour, depotSchedule.Minutes);
-            var result = CronExpression.IsValidExpression(expression);
-            return TriggerBuilder.Create().WithCronSchedule(expression);
+            
+            //This is for debugging purposes
+            //var result = CronExpression.IsValidExpression(expression); 
+
+            var timezone = TimeZoneInfo.GetSystemTimeZones().Single(tz => tz.Id == depot.TimeZoneId);
+            
+            var cronScheduleBuilder = CronScheduleBuilder.CronSchedule(expression).InTimeZone(timezone).WithMisfireHandlingInstructionFireAndProceed();
+            return (ICronTrigger) TriggerBuilder.Create().ForJob(jobKey).WithSchedule(cronScheduleBuilder).Build();
         }
 
         public void Stop()
