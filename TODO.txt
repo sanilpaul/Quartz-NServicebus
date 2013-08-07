@@ -1,0 +1,6 @@
+1. Figure out Cron Scheduler
+2. Pass in the TimeZoneID info
+3. MisFire Instructions
+4. Holiday Schedule
+5. Entity Framework Code First (Use EF PowerTools to ReEngineer classes)
+6. Can we change Schema (dbo)
