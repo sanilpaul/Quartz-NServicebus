@@ -1,7 +1,3 @@
-1. Figure out Cron Scheduler
-2. Pass in the TimeZoneID info
-3. MisFire Instructions
-4. Holiday Schedule
-5. Entity Framework Code First (Use EF PowerTools to ReEngineer classes)
-6. Can we change Schema (dbo)
-7. DI to get IBUS resolved
+1. Holiday Schedule
+2. Can we change Schema (dbo)
+3. Wire-up Unity DI to get IBUS resolved
