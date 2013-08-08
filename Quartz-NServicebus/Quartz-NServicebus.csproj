@@ -84,7 +84,7 @@
     <Compile Include="Depot.cs" />
     <Compile Include="DepotSchedule.cs" />
     <Compile Include="JobSetUp.cs" />
-    <Compile Include="JobInEst.cs" />
+    <Compile Include="CustomJob.cs" />
     <Compile Include="Models\Mapping\QRTZ_BLOB_TRIGGERSMap.cs" />
     <Compile Include="Models\Mapping\QRTZ_CALENDARSMap.cs" />
     <Compile Include="Models\Mapping\QRTZ_CRON_TRIGGERSMap.cs" />
