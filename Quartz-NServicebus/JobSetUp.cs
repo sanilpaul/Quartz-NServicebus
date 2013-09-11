@@ -2,7 +2,6 @@
 using System.Linq;
 using NServiceBus;
 using Quartz;
-using Quartz.Spi;
 using Quartz_NServicebus.Data;
 
 namespace Quartz_NServicebus
@@ -27,7 +26,7 @@ namespace Quartz_NServicebus
                 {
                     var schedule = schedules.Single(s => s.DepotId == depot.Id);
 
-                    var jobKey = new JobKey(depot.Id.ToString(), depot.Name);
+                    var jobKey = new JobKey(depot.Id.ToString(), "Depot Supply Schedule");
                     var jobDetail = JobBuilder.Create<CustomJob>().WithIdentity(jobKey).Build();
                     var trigger = CreateTrigger(schedule, depot, jobKey);
 

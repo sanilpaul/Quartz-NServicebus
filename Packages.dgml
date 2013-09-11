@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Quartz-Nservicebus.Messages" Label="Quartz-Nservicebus.Messages" Category="Project" />
+    <Node Id="NServiceBus 4.0.2" Label="NServiceBus 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Interfaces 4.0.2" Label="NServiceBus.Interfaces 4.0.2" Category="Package" />
+    <Node Id="Quartz-NServiceBus.MessageReceiver" Label="Quartz-NServiceBus.MessageReceiver" Category="Project" />
+    <Node Id="NServiceBus 4.0.2" Label="NServiceBus 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Host 4.0.2" Label="NServiceBus.Host 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Interfaces 4.0.2" Label="NServiceBus.Interfaces 4.0.2" Category="Package" />
+    <Node Id="T4Scaffolding.Core 1.0.0" Label="T4Scaffolding.Core 1.0.0" Category="Package" />
+    <Node Id="Quartz-NServicebus" Label="Quartz-NServicebus" Category="Project" />
+    <Node Id="Common.Logging 2.1.2" Label="Common.Logging 2.1.2" Category="Package" />
+    <Node Id="CommonServiceLocator 1.0" Label="CommonServiceLocator 1.0" Category="Package" />
+    <Node Id="EntityFramework 5.0.0" Label="EntityFramework 5.0.0" Category="Package" />
+    <Node Id="NServiceBus 4.0.2" Label="NServiceBus 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Host 4.0.2" Label="NServiceBus.Host 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Interfaces 4.0.2" Label="NServiceBus.Interfaces 4.0.2" Category="Package" />
+    <Node Id="NServiceBus.Unity 4.0.2" Label="NServiceBus.Unity 4.0.2" Category="Package" />
+    <Node Id="Quartz 2.1.2" Label="Quartz 2.1.2" Category="Package" />
+    <Node Id="T4Scaffolding.Core 1.0.0" Label="T4Scaffolding.Core 1.0.0" Category="Package" />
+    <Node Id="Unity 2.1.505.2" Label="Unity 2.1.505.2" Category="Package" />
+    <Node Id="Unity.Interception 2.1.505.2" Label="Unity.Interception 2.1.505.2" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="NServiceBus 4.0.2" Target="NServiceBus.Interfaces 4.0.2" Category="Package Dependency" />
+    <Link Source="Quartz-Nservicebus.Messages" Target="NServiceBus 4.0.2" Category="Installed Package" />
+    <Link Source="NServiceBus 4.0.2" Target="NServiceBus.Interfaces 4.0.2" Category="Package Dependency" />
+    <Link Source="NServiceBus.Host 4.0.2" Target="T4Scaffolding.Core 1.0.0" Category="Package Dependency" />
+    <Link Source="NServiceBus.Host 4.0.2" Target="NServiceBus 4.0.2" Category="Package Dependency" />
+    <Link Source="Quartz-NServiceBus.MessageReceiver" Target="NServiceBus.Host 4.0.2" Category="Installed Package" />
+    <Link Source="NServiceBus 4.0.2" Target="NServiceBus.Interfaces 4.0.2" Category="Package Dependency" />
+    <Link Source="NServiceBus.Host 4.0.2" Target="T4Scaffolding.Core 1.0.0" Category="Package Dependency" />
+    <Link Source="NServiceBus.Host 4.0.2" Target="NServiceBus 4.0.2" Category="Package Dependency" />
+    <Link Source="NServiceBus.Unity 4.0.2" Target="Unity.Interception 2.1.505.2" Category="Package Dependency" />
+    <Link Source="NServiceBus.Unity 4.0.2" Target="Unity 2.1.505.2" Category="Package Dependency" />
+    <Link Source="NServiceBus.Unity 4.0.2" Target="NServiceBus 4.0.2" Category="Package Dependency" />
+    <Link Source="Quartz 2.1.2" Target="Common.Logging 2.1.2" Category="Package Dependency" />
+    <Link Source="Unity 2.1.505.2" Target="CommonServiceLocator 1.0" Category="Package Dependency" />
+    <Link Source="Unity.Interception 2.1.505.2" Target="Unity 2.1.505.2" Category="Package Dependency" />
+    <Link Source="Quartz-NServicebus" Target="EntityFramework 5.0.0" Category="Installed Package" />
+    <Link Source="Quartz-NServicebus" Target="NServiceBus.Host 4.0.2" Category="Installed Package" />
+    <Link Source="Quartz-NServicebus" Target="NServiceBus.Unity 4.0.2" Category="Installed Package" />
+    <Link Source="Quartz-NServicebus" Target="Quartz 2.1.2" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

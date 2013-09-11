@@ -55,6 +55,7 @@ namespace Quartz_NServicebus.Models.Mapping
             this.Property(t => t.JOB_GROUP).HasColumnName("JOB_GROUP");
             this.Property(t => t.IS_NONCONCURRENT).HasColumnName("IS_NONCONCURRENT");
             this.Property(t => t.REQUESTS_RECOVERY).HasColumnName("REQUESTS_RECOVERY");
+            this.Property(t => t.SCHED_TIME).HasColumnName("SCHED_TIME");
         }
     }
 }

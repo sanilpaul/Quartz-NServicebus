@@ -17,5 +17,6 @@ namespace Quartz_NServicebus.Models
         public string JOB_GROUP { get; set; }
         public Nullable<bool> IS_NONCONCURRENT { get; set; }
         public Nullable<bool> REQUESTS_RECOVERY { get; set; }
+        public long SCHED_TIME { get; set; }
     }
 }
